@@ -25,7 +25,8 @@ class TimeSerieDS(Dataset):
                  s2_ch: List[int]|None=None,
                  targets: List[Tuple[int, int]]|None=None,
                  sel_mode: Literal['one', 'month', 'all']='one',
-                 seed: int|None=None
+                 seed: int|None=None,
+                 s1_type: Literal['float', 'uint']='uint'
                  ):
         self.path_dicts = path_dicts
         self.s1_nch = s1_nch
@@ -36,6 +37,7 @@ class TimeSerieDS(Dataset):
         self.s1_ch = np.arange(s1_nch) if s1_ch is None else np.array(s1_ch)
         self.s2_ch = np.arange(s2_nch) if s2_ch is None else np.array(s2_ch)
         self.sel_mode = sel_mode
+        self.s1_type = s1_type
 
         self._rng = np.random.default_rng(seed=seed)
 
@@ -147,6 +149,8 @@ class TimeSerieDS(Dataset):
         s2_months = np.array(read_months(path_dict['s2_properties']))[indices]
         lat, lon = read_lat_lon(path_dict['tile'])
 
+        if self.s1_type == 'uint':
+            s1 = - s1 / 1000
         s1 = clip_and_rescale(s1, *self.s1_range, -1, 1)
         s2 = clip_and_rescale(s2, *self.s2_range, -1, 1)
 
