@@ -21,10 +21,10 @@ if __name__ == '__main__':
     opt.beta1 = 0
     opt.num_downs = 8
     opt.lr = 0.0002
-    opt.lambda_l1 = 0
+    opt.lambda_l1 = 100
     opt.lambda_ssim = 0
     opt.n_critics = 2
-    opt.gan_mode = 'wgangp'
+    opt.gan_mode = 'lsgan'
     opt.upsample = 'bilinear'
     opt.device = 'cpu'
     

@@ -154,11 +154,11 @@ class DeCloudGAN:
 
                 img = torch.movedim(y[0], 0, -1).numpy()
 
-                plt.imsave(f'./results/{i}.png', np.clip(0, 1, img * 3.33))
+                plt.imsave(f'./results/{i}.png', img)
 
                 img_ = torch.movedim(y_[0], 0, -1).numpy()
 
-                plt.imsave(f'./results/{i}_.png', np.clip(0, 1, img_ * 3.33))
+                plt.imsave(f'./results/{i}_.png', img_)
 
         
         print(l / n)
