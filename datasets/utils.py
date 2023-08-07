@@ -13,7 +13,6 @@ from datetime import datetime
 import json
 from tqdm import tqdm
 
-# TODO: add a sanity check util
 # TODO: add running mean/std util
 
 def get_path_dicts(path: Path, sanity_check: bool=False) -> List[Dict[str, Path]]:

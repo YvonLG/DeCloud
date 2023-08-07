@@ -40,7 +40,7 @@ class DeCloudGAN:
 
         if self.opt.gan_mode == 'wgangp':
             y_ = self.G(x, z)
-            eps = torch.rand(y.size(0), 1, 1, 1).expand(-1, y.size(1), y.size(2), y.size(3))
+            eps = torch.rand(y.size(0), 1, 1, 1).expand(-1, y.size(1), y.size(2), y.size(3)).to(self.device)
             y_interp = eps * y + (1 - eps) * y_
             
             pred = self.D(y, z)

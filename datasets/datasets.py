@@ -25,7 +25,7 @@ class TimeSerieDS(Dataset):
                  s2_ch: List[int]|None=None,
                  targets: List[Tuple[int, int]]|None=None,
                  sel_mode: Literal['one', 'month', 'all']='one',
-                 seed: int=None
+                 seed: int|None=None
                  ):
         self.path_dicts = path_dicts
         self.s1_nch = s1_nch
