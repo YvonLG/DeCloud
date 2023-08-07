@@ -13,5 +13,5 @@ if __name__ == '__main__':
     path_dicts_train = path_dicts
     path_dicts_valid = path_dicts
 
-    TimeSerieDS(path_dicts_train, ts_len=3, sel_mode='month').save('train_dataset.pickle')
-    TimeSerieDS(path_dicts_valid, ts_len=3, sel_mode='month').save('valid_dataset.pickle')
+    TimeSerieDS(path_dicts_train, ts_len=3, sel_mode='one').save('train_dataset.pickle')
+    TimeSerieDS(path_dicts_valid, ts_len=3, sel_mode='one').save('valid_dataset.pickle')

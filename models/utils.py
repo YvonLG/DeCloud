@@ -9,10 +9,8 @@ from torch.nn import init
 from pytorch_msssim import ssim
 
 def ssim_loss(x: torch.Tensor, y: torch.Tensor):
-    # x and y are between -1 and 1 because generator ends with tanh
-    x_ = (x+1) / 2
-    y_ = (y+1) / 2
-    return 1 - ssim(x_, y_, data_range=1, win_size=11, win_sigma=1.5, nonnegative_ssim=True)
+    # x and y must be rescaled between 0 and 1.
+    return 1 - ssim(x, y, data_range=1, win_size=11, win_sigma=1.5, nonnegative_ssim=True)
 
 def get_non_linearity(name: str) -> nn.Module:
     if name == 'lrelu':
