@@ -150,7 +150,7 @@ class TimeSerieDS(Dataset):
         lat, lon = read_lat_lon(path_dict['tile'])
 
         if self.s1_type == 'uint':
-            s1 = - s1 / 1000
+            s1 = - (s1 / 1000)
         s1 = clip_and_rescale(s1, *self.s1_range, -1, 1)
         s2 = clip_and_rescale(s2, *self.s2_range, -1, 1)
 
